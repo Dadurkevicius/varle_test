@@ -10,5 +10,10 @@ public class Locators {
             public static By fieldUserPassword = By.xpath("//*[@id='id_password']");
             public static By buttonLogIn = By.xpath("//*[@class='button']");
         }
+        public static class VarleSearch {
+            public static By searchField = By.xpath("//input[@name='q']");
+            public static By searchArrow = By.xpath("//*[@alt='search']");
+            public static By itemsOfSearchResult = By.xpath("//div[@class='product-title']//a");
+        }
     }
 }
