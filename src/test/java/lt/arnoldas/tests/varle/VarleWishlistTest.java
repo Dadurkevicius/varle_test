@@ -31,5 +31,18 @@ public class VarleWishlistTest extends BaseTest {
 
         Assert.assertEquals(actualFavouriteItems, expectedFavouriteItems);
     }
+    @Test
+    public void testIfItemsCanBeRemovedFromWishlist(){
+        int expectedFavouriteItems = 0;
+        int actualFavouriteItems;
+
+        VarleWishlistPage.clickOnFavourites();
+        VarleWishlistPage.clickOnUnfavouriteButton();
+        actualFavouriteItems = VarleWishlistPage.checkCountOfFavouriteItems();
+
+        Assert.assertEquals(actualFavouriteItems, expectedFavouriteItems);
+
+    }
+
 }
 
