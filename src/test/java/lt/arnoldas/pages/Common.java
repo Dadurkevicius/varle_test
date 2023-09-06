@@ -77,5 +77,9 @@ public class Common {
         }
     }
 
+    public static void clickOnFirstElement(By locator) {
+        List<WebElement> elements = getElements(locator);
+        elements.get(0).click();
+    }
 }
 

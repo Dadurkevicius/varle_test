@@ -53,4 +53,19 @@ public class VarleHomePage {
         }
         return true;
     }
+
+    public static void clickOnFirstItem() {
+        Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.itemsOfSearchResult);
+        Common.clickOnFirstElement(Locators.Varle.VarleSearch.itemsOfSearchResult);
+    }
+
+    public static void clickToAddToBasket() {
+        Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.buttonToAddToBasket);
+        Common.clickOnElement(Locators.Varle.VarleSearch.buttonToAddToBasket);
+    }
+
+    public static void clickButtonBuy() {
+        Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.buttonToBuy);
+        Common.clickOnElement(Locators.Varle.VarleSearch.buttonToBuy);
+    }
 }

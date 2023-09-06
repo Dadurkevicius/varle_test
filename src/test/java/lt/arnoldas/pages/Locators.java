@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 
 public class Locators {
     public static class Varle {
+        public static class VarleBasket{
+
+            public static By removeItemButton = By.xpath("//a[@class='remove']");
+        }
 
 
         public static class VarleLogin {
@@ -17,6 +21,8 @@ public class Locators {
             public static By searchField = By.xpath("//input[@name='q']");
             public static By searchArrow = By.xpath("//*[@alt='search']");
             public static By itemsOfSearchResult = By.xpath("//div[@class='product-title']//a");
+            public static By buttonToAddToBasket = By.xpath("(//*[@class='PRODUCT_ADD_TO_CART_BLOCK'])[1]");
+            public static By buttonToBuy = By.xpath("//button[@class='primary-button']");
         }
 
         public static class VarleWishlist {
