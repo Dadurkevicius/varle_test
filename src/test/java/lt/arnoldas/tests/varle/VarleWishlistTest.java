@@ -19,7 +19,7 @@ public class VarleWishlistTest extends BaseTest {
     @Test
     public void testIfItemsCanBeAddedToWishlist() {
         String nameOfGoods = "Laikrodis";
-        int expectedFavouriteItems = 1;
+        int expectedFavouriteItems = 3;
         int actualFavouriteItems;
 
         VarleHomePage.clickOnSearch();
@@ -37,7 +37,7 @@ public class VarleWishlistTest extends BaseTest {
         int actualFavouriteItems;
 
         VarleWishlistPage.clickOnFavourites();
-        VarleWishlistPage.clickOnUnfavouriteButton();
+        VarleWishlistPage.clickOnAllUnfavouriteButtons();
         actualFavouriteItems = VarleWishlistPage.checkCountOfFavouriteItems();
 
         Assert.assertEquals(actualFavouriteItems, expectedFavouriteItems);

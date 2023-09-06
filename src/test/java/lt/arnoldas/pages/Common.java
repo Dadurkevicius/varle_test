@@ -59,14 +59,23 @@ public class Common {
     }
 
     public static void waitForElementToBeVisible(By locator) {
-        WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(8));
+        WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public static void clickOnElements(By locator) {
+
+    public static void clickOnFirstThreeElements(By locator) {
+        List<WebElement> elements = getElements(locator);
+        elements.get(0).click();
+        elements.get(1).click();
+        elements.get(2).click();
+    }
+
+    public static void clickOnAllElements(By locator) {
         List<WebElement> elements = getElements(locator);
         for (WebElement webElement : elements) {
             webElement.click();
         }
     }
+
 }
 
