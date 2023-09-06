@@ -1,6 +1,7 @@
-package lt.arnoldas.tests;
+package lt.arnoldas.tests.varle;
 
 import lt.arnoldas.pages.varle.VarleHomePage;
+import lt.arnoldas.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class VarleSearchTest extends BaseTest{
+public class VarleHomeTest extends BaseTest {
     @BeforeMethod
     @Override
     public void setUp() {
@@ -28,4 +29,6 @@ public class VarleSearchTest extends BaseTest{
 
         Assert.assertTrue(actualResult);
     }
-}
+
+    }
+

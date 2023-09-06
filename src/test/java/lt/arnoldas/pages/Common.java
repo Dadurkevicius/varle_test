@@ -62,4 +62,11 @@ public class Common {
         WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(8));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+    public static void clickOnElements(By locator) {
+        List<WebElement> elements = getElements(locator);
+        for (WebElement webElement : elements) {
+            webElement.click();
+        }
+    }
 }
+
