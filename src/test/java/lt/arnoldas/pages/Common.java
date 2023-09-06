@@ -3,7 +3,10 @@ package lt.arnoldas.pages;
 import lt.arnoldas.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +30,11 @@ public class Common {
     public static WebElement getElement(By locator) {
         return Driver.getInstance().findElement(locator);
     }
+
     public static List<WebElement> getElements(By locator) {
         return Driver.getInstance().findElements(locator);
     }
+
     public static void sendKeysToElement(By locator, String message) {
         getElement(locator).sendKeys(message);
     }
@@ -41,6 +46,7 @@ public class Common {
     public static String getTextFromElement(By locator) {
         return getElement(locator).getText();
     }
+
     public static List<String> getSearchResult(By locator) {
 
         List<WebElement> elements = getElements(locator);
@@ -50,5 +56,10 @@ public class Common {
             searchResults.add(element.getText().toLowerCase());
         }
         return searchResults;
+    }
+
+    public static void waitForElementToBeVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(8));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }

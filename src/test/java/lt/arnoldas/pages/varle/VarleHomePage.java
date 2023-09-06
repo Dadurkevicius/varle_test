@@ -36,6 +36,7 @@ public class VarleHomePage {
         Common.clickOnElement(Locators.Varle.VarleSearch.searchArrow);
     }
     public static boolean checkSearchResult(List<String> searchResultCriteria) {
+        Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.itemsOfSearchResult);
         List<String> searchResults = Common.getSearchResult(Locators.Varle.VarleSearch.itemsOfSearchResult);
         for (String searchResult : searchResults) {
             if (compareResult(searchResult, searchResultCriteria))
