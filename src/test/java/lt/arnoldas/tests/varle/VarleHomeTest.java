@@ -29,6 +29,19 @@ public class VarleHomeTest extends BaseTest {
 
         Assert.assertTrue(actualResult);
     }
+@Test
+public void testIfItemsSortedByPriceDecreasing(){
+    String nameOfGoods = "Laikrodis";
+    String sortBy = "-price";
+    boolean actualResult;
 
+    VarleHomePage.clickOnSearch();
+    VarleHomePage.enterSearchText(nameOfGoods);
+    VarleHomePage.clickOnSearchArrow();
+    VarleHomePage.clickOnItemPriceSortButton(sortBy);
+    VarleHomePage.convertFromSearchElementsToPrices();
+    System.out.println();
+
+}
     }
 

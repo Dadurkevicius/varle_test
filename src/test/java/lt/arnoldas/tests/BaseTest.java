@@ -6,8 +6,8 @@ import org.testng.annotations.BeforeMethod;
 
 public abstract class BaseTest {
     @BeforeMethod
-    public abstract void setUp();
+    public abstract void setUp();}
 
-    @AfterMethod
-    public void tearDown() { Common.quitDriver(); }
-}
+//    @AfterMethod
+//    public void tearDown() { Common.quitDriver(); }
+//}

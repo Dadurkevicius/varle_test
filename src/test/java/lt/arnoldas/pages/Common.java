@@ -4,6 +4,7 @@ import lt.arnoldas.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -47,15 +48,23 @@ public class Common {
         return getElement(locator).getText();
     }
 
-    public static List<String> getSearchResult(By locator) {
+    public static List<String> getSearchResultPrices(By locator) {
 
-        List<WebElement> elements = getElements(locator);
-        List<String> searchResults = new ArrayList<>();
+        List<WebElement> pricesInEuros = getElements(locator);
+        List<WebElement> followingSiblings = getElements(Locators.Varle.VarleSearch.centsOfSearchResults);
+        List<String> searchPriceResults = new ArrayList<>();
 
-        for (WebElement element : elements) {
-            searchResults.add(element.getText().toLowerCase());
+        for (int i = 0; i < pricesInEuros.size(); i++) {
+            String finalText;
+            String siblingText = followingSiblings.get(i).getText();
+            if (!siblingText.equals(" €")) {
+                finalText = pricesInEuros.get(i).getText() + siblingText;
+            } else {
+                finalText = pricesInEuros.get(i).getText();
+            }
+            searchPriceResults.add(finalText);
         }
-        return searchResults;
+        return searchPriceResults;
     }
 
     public static void waitForElementToBeVisible(By locator) {
@@ -90,5 +99,11 @@ public class Common {
     public static boolean isElementEnabled(By locator) {
         return getElement(locator).isEnabled();
     }
+    public static void selectOptionByValue(By locator, String selectValue) {
+        WebElement element = getElement(locator);
+        Select select = new Select(element);
+        select.selectByValue(selectValue);
+    }
+
 }
 
