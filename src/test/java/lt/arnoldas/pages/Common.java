@@ -63,12 +63,13 @@ public class Common {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public static void clickOnFirstThreeElements(By locator) {
+    public static void clickOnFirstTwoElements(By locator) {
         List<WebElement> elements = getElements(locator);
         elements.get(0).click();
         elements.get(1).click();
-        elements.get(2).click();
     }
+
+
 
     public static void clickOnAllElements(By locator) {
         List<WebElement> elements = getElements(locator);
@@ -88,7 +89,6 @@ public class Common {
 
     public static boolean isElementEnabled(By locator) {
         return getElement(locator).isEnabled();
-
     }
 }
 

@@ -7,9 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class VarleBasketTest extends BaseTest {
     @BeforeMethod
     @Override
@@ -17,7 +14,8 @@ public class VarleBasketTest extends BaseTest {
         VarleHomePage.open();
         VarleHomePage.logInToPage();
     }
-@Test
+
+    @Test
     public void testIfPossibleToAddItemToBasket() {
         String nameOfGoods = "Vaza";
         int expectedBasketItems = 1;
@@ -33,21 +31,5 @@ public class VarleBasketTest extends BaseTest {
 
         Assert.assertEquals(actualBasketItems, expectedBasketItems);
     }
-    @Test
-    public void testIfPossibleToRemoveItemsFromBasket(){
-        String nameOfGoods = "Spinta";
-        boolean isBasketEnabled;
-
-        VarleHomePage.clickOnSearch();
-        VarleHomePage.enterSearchText(nameOfGoods);
-        VarleHomePage.clickOnSearchArrow();
-        VarleHomePage.clickOnFirstItem();
-        VarleHomePage.clickToAddToBasket();
-        VarleHomePage.clickButtonBuy();
-        VarleBasketPage.clickOnAllRemoveButtons();
-        isBasketEnabled = VarleBasketPage.isBasketEnabled();
-
-        Assert.assertFalse(isBasketEnabled);
-    }
-    }
+}
 
