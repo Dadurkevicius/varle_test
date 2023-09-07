@@ -16,8 +16,9 @@ public class VarleHomeTest extends BaseTest {
         VarleHomePage.open();
         VarleHomePage.logInToPage();
     }
+
     @Test
-    public void testSearchItemLaikrodis(){
+    public void testSearchItemLaikrodis() {
         String nameOfGoods = "Laikrodis";
         List<String> searchResultCriteria = Arrays.asList("laikrodis", "apyrankė");
         boolean actualResult;
@@ -29,19 +30,21 @@ public class VarleHomeTest extends BaseTest {
 
         Assert.assertTrue(actualResult);
     }
-@Test
-public void testIfItemsSortedByPriceDecreasing(){
-    String nameOfGoods = "Laikrodis";
-    String sortBy = "-price";
-    boolean actualResult;
 
-    VarleHomePage.clickOnSearch();
-    VarleHomePage.enterSearchText(nameOfGoods);
-    VarleHomePage.clickOnSearchArrow();
-    VarleHomePage.clickOnItemPriceSortButton(sortBy);
-    VarleHomePage.convertFromSearchElementsToPrices();
-    System.out.println();
+    @Test
+    public void testIfItemsSortedByPriceDecreasing() {
+        String nameOfGoods = "Laikrodis";
+        String sortBy = "-price";
+        boolean actualResult;
 
-}
+        VarleHomePage.clickOnSearch();
+        VarleHomePage.enterSearchText(nameOfGoods);
+        VarleHomePage.clickOnSearchArrow();
+        VarleHomePage.clickOnItemPriceSortButton(sortBy);
+        VarleHomePage.convertFromSearchElementsToPrices();
+        actualResult = VarleHomePage.checkIfPricesInDoubleAreDescending(VarleHomePage.convertFromSearchElementsToPrices());
+
+        Assert.assertTrue(actualResult);
     }
+}
 

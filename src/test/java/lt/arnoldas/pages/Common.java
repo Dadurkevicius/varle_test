@@ -2,6 +2,7 @@ package lt.arnoldas.pages;
 
 import lt.arnoldas.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -44,27 +45,24 @@ public class Common {
         getElement(locator).click();
     }
 
-    public static String getTextFromElement(By locator) {
-        return getElement(locator).getText();
+    public static void clickOnFirstElement(By locator) {
+        List<WebElement> elements = getElements(locator);
+        elements.get(0).click();
     }
 
-    public static List<String> getSearchResultPrices(By locator) {
+    public static boolean isElementEnabled(By locator) {
+        return getElement(locator).isEnabled();
+    }
 
-        List<WebElement> pricesInEuros = getElements(locator);
-        List<WebElement> followingSiblings = getElements(Locators.Varle.VarleSearch.centsOfSearchResults);
-        List<String> searchPriceResults = new ArrayList<>();
+    public static List<String> getSearchResultText(By locator) {
 
-        for (int i = 0; i < pricesInEuros.size(); i++) {
-            String finalText;
-            String siblingText = followingSiblings.get(i).getText();
-            if (!siblingText.equals(" €")) {
-                finalText = pricesInEuros.get(i).getText() + siblingText;
-            } else {
-                finalText = pricesInEuros.get(i).getText();
-            }
-            searchPriceResults.add(finalText);
+        List<WebElement> elements = getElements(locator);
+        List<String> searchResults = new ArrayList<>();
+
+        for (WebElement element : elements) {
+            searchResults.add(element.getText().toLowerCase());
         }
-        return searchPriceResults;
+        return searchResults;
     }
 
     public static void waitForElementToBeVisible(By locator) {
@@ -72,38 +70,38 @@ public class Common {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public static void clickOnFirstTwoElements(By locator) {
-        List<WebElement> elements = getElements(locator);
-        elements.get(0).click();
-        elements.get(1).click();
-    }
-
-
-
-    public static void clickOnAllElements(By locator) {
-        List<WebElement> elements = getElements(locator);
-        for (WebElement webElement : elements) {
-            webElement.click();
-        }
-    }
-
-    public static void clickOnFirstElement(By locator) {
-        List<WebElement> elements = getElements(locator);
-        elements.get(0).click();
-    }
     public static void waitForElementToBeClickable(By locator) {
         WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(8));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public static boolean isElementEnabled(By locator) {
-        return getElement(locator).isEnabled();
-    }
     public static void selectOptionByValue(By locator, String selectValue) {
         WebElement element = getElement(locator);
         Select select = new Select(element);
         select.selectByValue(selectValue);
     }
 
+    public static boolean isElementVisible(By locator) {
+        return getElement(locator).isDisplayed();
+    }
+
+    public static boolean waitForElementToBeVisibleCustomised(By locator, int seconds) {
+
+        for (int i = 1; i <= (seconds * 2); i++) {
+            try {
+                Thread.sleep(1500);
+
+                if (isElementVisible(locator)) {
+                    return true;
+                }
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (NoSuchElementException e) {
+            }
+        }
+
+        return false;
+    }
 }
 

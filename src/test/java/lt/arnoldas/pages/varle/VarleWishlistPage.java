@@ -13,15 +13,15 @@ public class VarleWishlistPage {
     }
 
     public static void clickOnFavourites() {
-        Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.favouritesButton);
-        Common.clickOnElement(Locators.Varle.VarleWishlist.favouritesButton);
+        Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.favoritesButton);
+        Common.clickOnElement(Locators.Varle.VarleWishlist.favoritesButton);
     }
 
     public static void clickOnAllUnfavoriteButtons() {
-        List<WebElement> favorites = Common.getElements(Locators.Varle.VarleWishlist.unfavouriteButton);
+        List<WebElement> favorites = Common.getElements(Locators.Varle.VarleWishlist.unfavoriteButton);
         for (WebElement element : favorites) {
-            Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.unfavouriteButton);
-            Common.clickOnElement(Locators.Varle.VarleWishlist.unfavouriteButton);
+            Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.unfavoriteButton);
+            Common.clickOnElement(Locators.Varle.VarleWishlist.unfavoriteButton);
         }
     }
 

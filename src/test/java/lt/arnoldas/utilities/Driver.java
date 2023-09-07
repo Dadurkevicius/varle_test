@@ -33,7 +33,6 @@ public class Driver {
         webDriver.set(new FirefoxDriver(optionsFirefox));
         webDriver.get().manage().window().maximize();
         webDriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-
     }
 
     public static WebDriver getInstance() {
