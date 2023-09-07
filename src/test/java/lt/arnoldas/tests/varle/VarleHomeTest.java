@@ -41,7 +41,6 @@ public class VarleHomeTest extends BaseTest {
         VarleHomePage.enterSearchText(nameOfGoods);
         VarleHomePage.clickOnSearchArrow();
         VarleHomePage.clickOnItemPriceSortButton(sortBy);
-        VarleHomePage.convertFromSearchElementsToPrices();
         actualResult = VarleHomePage.checkIfPricesInDoubleAreDescending(VarleHomePage.convertFromSearchElementsToPrices());
 
         Assert.assertTrue(actualResult);

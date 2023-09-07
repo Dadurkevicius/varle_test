@@ -10,7 +10,6 @@ public class Locators {
 
         }
 
-
         public static class VarleLogin {
             public static By buttonRegister = By.xpath("//*[@class='register']");
             public static By fieldUserId = By.xpath("//*[@id='id_username']");
@@ -34,7 +33,7 @@ public class Locators {
         public static class VarleWishlist {
 
             public static By heartIcons = By.xpath("//*[@class='product-like ']");
-            public static By favoritesButton = By.xpath("//*[@alt='wishlist']");
+            public static By favoritesButton = By.xpath("//*[@class='header-wishlist-container']");
             public static By favoriteItemList = By.xpath("//*[@class='item']");
             public static By unfavoriteButton = By.xpath("//span[@class='cross wlist']");
         }

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VarleHomePage {
-    private static String userId = "tester@gmail.com";
-    private static String userPassword = "hegS5*taTy.Tikq";
+    private static String userId = "tester01@gmail.com";
+    private static String userPassword = "j6HzevkV624zkZY";
 
     public static String getUserId() {
         return userId;
@@ -38,7 +38,6 @@ public class VarleHomePage {
     public static void clickOnSearch() {
         Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.searchField);
         Common.clickOnElement(Locators.Varle.VarleSearch.searchField);
-
     }
 
     public static void clickOnSearchArrow() {

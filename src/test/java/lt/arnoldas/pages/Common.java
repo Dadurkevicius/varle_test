@@ -50,10 +50,6 @@ public class Common {
         elements.get(0).click();
     }
 
-    public static boolean isElementEnabled(By locator) {
-        return getElement(locator).isEnabled();
-    }
-
     public static List<String> getSearchResultText(By locator) {
 
         List<WebElement> elements = getElements(locator);
@@ -68,11 +64,6 @@ public class Common {
     public static void waitForElementToBeVisible(By locator) {
         WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    public static void waitForElementToBeClickable(By locator) {
-        WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(8));
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
     public static void selectOptionByValue(By locator, String selectValue) {

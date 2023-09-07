@@ -49,6 +49,5 @@ public class VarleWishlistTest extends BaseTest {
         Assert.assertEquals(actualFavouriteItems, expectedFavouriteItems);
 
     }
-
 }
 

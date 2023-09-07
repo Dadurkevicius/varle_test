@@ -19,7 +19,7 @@ public class VarleWishlistPage {
 
     public static void clickOnAllUnfavoriteButtons() {
         List<WebElement> favorites = Common.getElements(Locators.Varle.VarleWishlist.unfavoriteButton);
-        for (WebElement element : favorites) {
+        for (int i = 0; i < favorites.size(); i++) {
             Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.unfavoriteButton);
             Common.clickOnElement(Locators.Varle.VarleWishlist.unfavoriteButton);
         }
