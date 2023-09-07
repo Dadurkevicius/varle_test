@@ -32,6 +32,7 @@ public class Locators {
             public static By favouritesButton = By.xpath("//*[@alt='wishlist']");
             public static By favoriteItemList = By.xpath("//*[@class='item']");
             public static By unfavouriteButton = By.xpath("//span[@class='cross wlist']");
+            public static By favouritesHeader = By.xpath("//div[@class='heading1']");
         }
     }
 }

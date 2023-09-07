@@ -29,6 +29,7 @@ public class VarleHomePage {
         Common.sendKeysToElement(Locators.Varle.VarleSearch.searchField, text);
     }
     public static void clickOnSearch() {
+        Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.searchField);
         Common.clickOnElement(Locators.Varle.VarleSearch.searchField);
 
     }

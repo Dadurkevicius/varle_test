@@ -25,7 +25,7 @@ public class VarleWishlistTest extends BaseTest {
         VarleHomePage.clickOnSearch();
         VarleHomePage.enterSearchText(nameOfGoods);
         VarleHomePage.clickOnSearchArrow();
-        VarleWishlistPage.clickOnHearts();
+        VarleWishlistPage.clickOnFirstThreeHeartIcons();
         VarleWishlistPage.clickOnFavourites();
         actualFavouriteItems = VarleWishlistPage.checkCountOfFavouriteItems();
 
@@ -33,9 +33,14 @@ public class VarleWishlistTest extends BaseTest {
     }
     @Test
     public void testIfItemsCanBeRemovedFromWishlist(){
+        String nameOfGoods = "Batai";
         int expectedFavouriteItems = 0;
         int actualFavouriteItems;
 
+        VarleHomePage.clickOnSearch();
+        VarleHomePage.enterSearchText(nameOfGoods);
+        VarleHomePage.clickOnSearchArrow();
+        VarleWishlistPage.clickOnFirstThreeHeartIcons();
         VarleWishlistPage.clickOnFavourites();
         VarleWishlistPage.clickOnAllUnfavouriteButtons();
         actualFavouriteItems = VarleWishlistPage.checkCountOfFavouriteItems();
