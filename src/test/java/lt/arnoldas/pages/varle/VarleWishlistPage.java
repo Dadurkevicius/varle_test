@@ -4,11 +4,10 @@ import lt.arnoldas.pages.Common;
 import lt.arnoldas.pages.Locators;
 import org.openqa.selenium.WebElement;
 
-import java.time.Duration;
 import java.util.List;
 
 public class VarleWishlistPage {
-    public static void clickOnFirstThreeHeartIcons(){
+    public static void clickOnHearts(){
         Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.heartIcons);
         Common.clickOnFirstThreeElements(Locators.Varle.VarleWishlist.heartIcons);
     }
@@ -18,17 +17,16 @@ public class VarleWishlistPage {
     }
 
     public static void clickOnAllUnfavouriteButtons() {
-      Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.favouritesHeader);
+//        Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.unfavouriteButton);
         List<WebElement> favourites = Common.getElements(Locators.Varle.VarleWishlist.unfavouriteButton);
         while (favourites.size()>0){
             Common.clickOnElement(Locators.Varle.VarleWishlist.unfavouriteButton);
-            Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.favouritesHeader);
+//            Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.unfavouriteButton);
             favourites = Common.getElements(Locators.Varle.VarleWishlist.unfavouriteButton);
         }
     }
 
     public static int checkCountOfFavouriteItems() {
-        Common.waitForElementToBeVisible(Locators.Varle.VarleWishlist.favoriteItemList);
         return Common.getElements(Locators.Varle.VarleWishlist.favoriteItemList).size();
     }
 }

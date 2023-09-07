@@ -25,7 +25,7 @@ public class VarleWishlistTest extends BaseTest {
         VarleHomePage.clickOnSearch();
         VarleHomePage.enterSearchText(nameOfGoods);
         VarleHomePage.clickOnSearchArrow();
-        VarleWishlistPage.clickOnFirstThreeHeartIcons();
+        VarleWishlistPage.clickOnHearts();
         VarleWishlistPage.clickOnFavourites();
         actualFavouriteItems = VarleWishlistPage.checkCountOfFavouriteItems();
 
@@ -40,7 +40,7 @@ public class VarleWishlistTest extends BaseTest {
         VarleHomePage.clickOnSearch();
         VarleHomePage.enterSearchText(nameOfGoods);
         VarleHomePage.clickOnSearchArrow();
-        VarleWishlistPage.clickOnFirstThreeHeartIcons();
+        VarleWishlistPage.clickOnHearts();
         VarleWishlistPage.clickOnFavourites();
         VarleWishlistPage.clickOnAllUnfavouriteButtons();
         actualFavouriteItems = VarleWishlistPage.checkCountOfFavouriteItems();

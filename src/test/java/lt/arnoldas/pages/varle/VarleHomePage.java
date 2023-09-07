@@ -69,4 +69,5 @@ public class VarleHomePage {
         Common.waitForElementToBeVisible(Locators.Varle.VarleSearch.buttonToBuy);
         Common.clickOnElement(Locators.Varle.VarleSearch.buttonToBuy);
     }
+
 }

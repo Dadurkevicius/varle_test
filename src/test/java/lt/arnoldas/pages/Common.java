@@ -81,7 +81,14 @@ public class Common {
         List<WebElement> elements = getElements(locator);
         elements.get(0).click();
     }
+    public static void waitForElementToBeClickable(By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(8));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
+    public static boolean isElementEnabled(By locator) {
+        return getElement(locator).isEnabled();
 
+    }
 }
 

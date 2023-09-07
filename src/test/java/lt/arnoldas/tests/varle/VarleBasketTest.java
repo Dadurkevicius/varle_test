@@ -18,10 +18,8 @@ public class VarleBasketTest extends BaseTest {
         VarleHomePage.logInToPage();
     }
 @Test
-    public void testIfPossibleToAddItemToBasket()
-
-    {
-        String nameOfGoods = "Laikrodis";
+    public void testIfPossibleToAddItemToBasket() {
+        String nameOfGoods = "Vaza";
         int expectedBasketItems = 1;
         int actualBasketItems;
 
@@ -34,6 +32,22 @@ public class VarleBasketTest extends BaseTest {
         actualBasketItems = VarleBasketPage.checkCountOfBasketItems();
 
         Assert.assertEquals(actualBasketItems, expectedBasketItems);
+    }
+    @Test
+    public void testIfPossibleToRemoveItemsFromBasket(){
+        String nameOfGoods = "Spinta";
+        boolean isBasketEnabled;
+
+        VarleHomePage.clickOnSearch();
+        VarleHomePage.enterSearchText(nameOfGoods);
+        VarleHomePage.clickOnSearchArrow();
+        VarleHomePage.clickOnFirstItem();
+        VarleHomePage.clickToAddToBasket();
+        VarleHomePage.clickButtonBuy();
+        VarleBasketPage.clickOnAllRemoveButtons();
+        isBasketEnabled = VarleBasketPage.isBasketEnabled();
+
+        Assert.assertFalse(isBasketEnabled);
     }
     }
 
